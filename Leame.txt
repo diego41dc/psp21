@@ -1,0 +1,2 @@
+-- El despliegue en heroku esta en: https://labecos01-psp2.herokuapp.com/
+El repositorio del proyecto esta en: https://github.com/diego41dc/psp21.git
