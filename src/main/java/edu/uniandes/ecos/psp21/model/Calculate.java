@@ -9,7 +9,6 @@ package edu.uniandes.ecos.psp21.model;
 public class Calculate 
 {
 
-    private String error;
     private Double dof;
     private Double x;
     private Double totalCalculado;
@@ -27,25 +26,23 @@ public class Calculate
      * @param x
      */
     public void calcularValores(Double dof, Double x){
-        try {
-            this.dof = dof;
-            this.x = x;
-            Double e = 0.00001;
-            
-            segmentos = 10;
-            Double resultado = 0D;
-            Double resultadoTmp = calcularIntegral(segmentos, dof, x);
-            
-            while(Math.abs(resultado-resultadoTmp)>=e){
-                resultado = resultadoTmp;
-                segmentos = segmentos+10;
-                resultadoTmp = calcularIntegral(segmentos, dof, x);
-            }
-            this.totalCalculado = aproximar(resultado);
-            
-        } catch (Exception e){
-            error = e.getMessage();
+        
+        this.dof = dof;
+        this.x = x;
+        Double e = 0.00001;
+
+        segmentos = 10;
+        Double resultado = 0D;
+        Double resultadoTmp = calcularIntegral(segmentos, dof, x);
+
+        while(Math.abs(resultado-resultadoTmp)>=e){
+            resultado = resultadoTmp;
+            segmentos = segmentos+10;
+            resultadoTmp = calcularIntegral(segmentos, dof, x);
         }
+        this.totalCalculado = aproximar(resultado);
+            
+        
     }
     
     /**
@@ -136,14 +133,7 @@ public class Calculate
         return factorial * Math.sqrt(Math.PI);
     }
     
-    /**
-     *  Get del error del proceso
-     * @return error
-     */
-    public String getError() {
-        return error;
-    }
-
+    
     /**
      *  Get del dof del proceso
      * @return dof
