@@ -14,13 +14,15 @@ import org.eclipse.jetty.servlet.ServletHolder;
 
 /**
  * Clase que maneja las respuestas posibles que genera el servlet
+ *
  * @version 1
  * @author Diego
  */
-public class WebView  extends HttpServlet {
-    
-   /**
-     *  Metodo inicial del servlet
+public class WebView extends HttpServlet {
+
+    /**
+     * Metodo inicial del servlet
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -30,7 +32,7 @@ public class WebView  extends HttpServlet {
         context.setContextPath("/");
         server.setHandler(context);
         context.addServlet(new ServletHolder(new WebView()), "/*");
-        
+
         try {
             server.start();
             server.join();
@@ -40,7 +42,8 @@ public class WebView  extends HttpServlet {
     }
 
     /**
-     *  Metodo que captura los llamados del doGet
+     * Metodo que captura los llamados del doGet
+     *
      * @param req
      * @param resp
      * @throws ServletException
@@ -50,14 +53,15 @@ public class WebView  extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             showHome(resp);
-        } catch (Exception ex) {    
-            error(resp,ex);
+        } catch (Exception ex) {
+            error(resp, ex);
             Logger.getLogger(WebView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     /**
-     *  Metodo que captura los llamados del doPost
+     * Metodo que captura los llamados del doPost
+     *
      * @param req
      * @param resp
      * @throws ServletException
@@ -68,14 +72,16 @@ public class WebView  extends HttpServlet {
         try {
             showHome(resp);
             Controller controller = new Controller();
-            show(resp,controller.ejecutar());
+            show(resp, controller.ejecutar());
         } catch (Exception ex) {
-            error(resp,ex);
+            error(resp, ex);
             Logger.getLogger(WebView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     /**
      * Inicia el contenido de la pagina del servlet
+     *
      * @param req
      * @param resp
      * @throws ServletException
@@ -85,14 +91,15 @@ public class WebView  extends HttpServlet {
         StringBuilder home = new StringBuilder();
         home.append("<html>");
         home.append("<h2>PSP2.1 Program!</h1>");
-        home.append("<h2>Este programa integra num&eacute;ricamente una funci&oacute;n usando la regla de Simpson.</h2>");
+        home.append("<h2>Este programa integra num&eacute;ricamente una funci&oacute;n usando la regla de Simpson y calculando din&aacute;micamente el valor de x.</h2>");
         home.append("<form action=\"calcular\" method=\"post\"> \n<input type=\"submit\" value=\"Calcular\">\n</form> ");
         home.append("</html>");
-        show(resp,home.toString());
+        show(resp, home.toString());
     }
-    
+
     /**
-     *  Crea la respuesta de error que se genere en el proceso
+     * Crea la respuesta de error que se genere en el proceso
+     *
      * @param req
      * @param resp
      * @param error
@@ -100,12 +107,13 @@ public class WebView  extends HttpServlet {
      * @throws IOException
      */
     private static void error(HttpServletResponse resp, Exception e) throws ServletException, IOException {
-        show(resp,"Error!!!");
-        show(resp,e.getMessage()+": "+e.getCause());
+        show(resp, "Error!!!");
+        show(resp, e.getMessage() + ": " + e.getCause());
     }
-    
+
     /**
-     *  Crea la respuesta de los resultados de los procesos ejecutados
+     * Crea la respuesta de los resultados de los procesos ejecutados
+     *
      * @param req
      * @param resp
      * @param respuesta
@@ -114,5 +122,5 @@ public class WebView  extends HttpServlet {
      */
     private static void show(HttpServletResponse resp, String respuesta) throws ServletException, IOException {
         resp.getWriter().println(respuesta);
-    }   
+    }
 }
