@@ -26,6 +26,7 @@ public class Calculate {
      * @param dof
      * @param p
      * @param e
+     * @param xInicial
      */
     public void calcularX(Double dof, Double p, Double e, Double xInicial) {
 

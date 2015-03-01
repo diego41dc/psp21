@@ -53,7 +53,10 @@ public class WebView extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             showHome(resp);
-        } catch (Exception ex) {
+        } catch (ServletException ex) {
+            error(resp, ex);
+            Logger.getLogger(WebView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
             error(resp, ex);
             Logger.getLogger(WebView.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -68,7 +71,7 @@ public class WebView extends HttpServlet {
      * @throws IOException
      */
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         try {
             showHome(resp);
             Controller controller = new Controller();
