@@ -27,18 +27,17 @@ public class Calculate {
      * @param p
      * @param e
      */
-    public void calcularX(Double dof, Double p, Double e) {
+    public void calcularX(Double dof, Double p, Double e, Double xInicial) {
 
         this.dof = dof;
         this.p = p;
         this.e = e;
-        x = 1D;
+        x = xInicial;
         Double resultado;
-        Double d = 0.5D;
+        Double d = x/2;
         resultado = calcularIntegral(10, dof, x);
-        System.out.println("Cosa1");
+       
         while (Math.abs(resultado - p) > e) {
-            System.out.println("Cosa");
             Double resultadoTmp1 = calcularIntegralAproximada(dof, x + d, e);
             Double resultadoTmp2 = calcularIntegralAproximada(dof, x - d, e);
             Double diferenciaTmp1 = resultadoTmp1 - p;
@@ -53,7 +52,7 @@ public class Calculate {
             }
             d = d / 2;
         }
-System.out.println("Cosa2");
+        
         this.pCalculado = aproximar(resultado);
 
     }

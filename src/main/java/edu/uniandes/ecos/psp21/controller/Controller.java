@@ -14,23 +14,23 @@ public class Controller {
      * Metodo que hace el llamado a los procesos que hacen los calculos del
      * negocio
      *
-     * @return 
+     * @return
      * @throws Exception
      */
     public String ejecutar() throws Exception {
         try {
             StringBuilder st = new StringBuilder();
-/*
+
             Calculate c = new Calculate();
-            c.calcularX(6D, 0.20,0.00001);
+            c.calcularX(6D, 0.20, 0.00001, 1D);
             st.append(calcularRespuesta(c, "Test 1"));
 
             Calculate c2 = new Calculate();
-            c2.calcularX(15D, 0.45,0.00001);
+            c2.calcularX(15D, 0.45, 0.00001, 1D);
             st.append(calcularRespuesta(c2, "Test 2"));
-*/
+
             Calculate c3 = new Calculate();
-            c3.calcularX(4D, 0.495,0.00001);
+            c3.calcularX(4D, 0.495, 0.00001, 8D);
             st.append(calcularRespuesta(c3, "Test 3"));
 
             return st.toString();
