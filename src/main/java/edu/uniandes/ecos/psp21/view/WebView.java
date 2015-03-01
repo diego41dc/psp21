@@ -95,6 +95,7 @@ public class WebView extends HttpServlet {
         home.append("<html>");
         home.append("<h2>PSP2.1 Program!</h1>");
         home.append("<h2>Este programa integra num&eacute;ricamente una funci&oacute;n usando la regla de Simpson y calculando din&aacute;micamente el valor de x.</h2>");
+        home.append("<h3>Autor: Diego Lozano</h3>");
         home.append("<form action=\"calcular\" method=\"post\"> \n<input type=\"submit\" value=\"Calcular\">\n</form> ");
         home.append("</html>");
         show(resp, home.toString());
