@@ -1,2 +1,9 @@
-El despliegue en heroku esta en: https://diegolozano-psp21.herokuapp.com/
-El repositorio del proyecto esta en: https://github.com/diego41dc/psp21.git
+Este programa fue escrito y documentado por Diego Lozano.
+
+Se tienen los siguientes punros importantes:
+1. Para ejecutar el programa localmente se debe usar la clase edu\uniandes\ecos\psp21\view\WebView
+2. El despliegue en heroku esta en: https://diegolozano-psp21.herokuapp.com/
+3. El repositorio del proyecto esta en: https://github.com/diego41dc/psp21.git
+4. El documento con los formatos esta en la ruta \src\site\resources\
+5. El javadoc se encuentra en la ruta \src\site\apidocs\
+6. Los test de unidad se encuentran en la ruta \src\test\
